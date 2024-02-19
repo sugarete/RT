@@ -280,7 +280,6 @@
     <Content Include="Scripts\jquery-3.7.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Views\Rasp\" />
   </ItemGroup>
   <PropertyGroup>
