@@ -1,0 +1,40 @@
+﻿@model RT.Models.ViewModels.AcsVM
+
+@{
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Attack Name</th>
+            <th scope="col">Length</th>
+            <th scope="col">Setting</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Atk in Model.AtkVMs)
+        {
+            <tr>
+                <th scope="row"> @Atk.Id </th>
+                <td> @Atk.ATK_Name </td>
+                <td> @Atk.Min_Length - @Atk.Max_Length </td>
+                <td> @Atk.Charset </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@*@using (Html.BeginForm("AddAttack", "Acs", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.Action)
+    @Html.HiddenFor(m => m.Hash)
+    @Html.HiddenFor(m => m.HashType)
+    @Html.HiddenFor(m => m.AtkVMs)
+    <button type="submit">Add Attack</button>
+}*@
+
+@Html.ActionLink("Add Attack", "AddAttack", "Acs", new { @class = "btn btn-primary" })
+@Html.ActionLink("Recover", "Recover", "Acs", new { @class = "btn btn-primary" })
+
+

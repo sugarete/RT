@@ -1,0 +1,42 @@
+﻿@model RT.Models.ViewModels.AtkVM
+@{
+    ViewBag.Title = "AddAttack";
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+}
+
+<div class="d-flex align-items-start">
+    <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <button class="nav-link active" id="v-pills-dictionary-tab" data-bs-toggle="pill" data-bs-target="#v-pills-dictionary" type="button" role="tab" aria-controls="v-pills-dictionary" aria-selected="true">Dictionary</button>
+        <button class="nav-link" id="v-pills-brute-tab" data-bs-toggle="pill" data-bs-target="#v-pills-brute" type="button" role="tab" aria-controls="v-pills-brute" aria-selected="false">Brute Force</button>
+        <button class="nav-link" id="v-pills-hybrid-tab" data-bs-toggle="pill" data-bs-target="#v-pills-hybrid" type="button" role="tab" aria-controls="v-pills-hybrid" aria-selected="false">Hybrid</button>
+        <button class="nav-link" id="v-pills-conbrute-tab" data-bs-toggle="pill" data-bs-target="#v-pills-conbrute" type="button" role="tab" aria-controls="v-pills-conbrute" aria-selected="false">Conditional Brute-force</button>
+        <button class="nav-link" id="v-pills-mask-tab" data-bs-toggle="pill" data-bs-target="#v-pills-mask" type="button" role="tab" aria-controls="v-pills-mask" aria-selected="false">Mask</button>
+    </div>
+    <div class="tab-content" id="v-pills-tabContent">
+        <div class="tab-pane fade show active" id="v-pills-dictionary" role="tabpanel" aria-labelledby="v-pills-dictionary-tab">...</div>
+        <div class="tab-pane fade" id="v-pills-brute" role="tabpanel" aria-labelledby="v-pills-brute-tab">
+        @using (Html.BeginForm("AddAttack", "Acs", FormMethod.Post))
+        {
+            @Html.HiddenFor(m => m.ATK_Name, new { @Value = "Brute Force" })
+            <div class="row mt-4">
+                <div class="col">
+                    @Html.TextBoxFor(m => m.Min_Length, new { placeholder = "Please Enter Min Length", @class = "form-control col-10" })
+                </div>
+                <div class="col">
+                    @Html.TextBoxFor(m => m.Max_Length, new { placeholder = "Please Enter Max Length", @class = "form-control col-10" })
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col">
+                    @Html.TextBoxFor(m => m.Charset, new { placeholder = "Please Enter Charset", @class = "form-control col-10" })
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3 w-50 col-10">Add Attack</button>
+        }
+        </div>
+        <div class="tab-pane fade" id="v-pills-hybrid" rolconbrute="tabpanel" aria-labelledby="v-pills-hybrid-tab">...</div>
+        <div class="tab-pane fade" id="v-pills-conbrute" role="tabpanel" aria-labelledby="v-pills-conbrute-tab">...</div>
+        <div class="tab-pane fade" id="v-pills-mask" role="tabpanel" aria-labelledby="v-pills-mask-tab">...</div>
+    </div>
+</div>
+
